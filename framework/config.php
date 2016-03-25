@@ -39,13 +39,13 @@ Config::set('default_method', 'index');
 // default database connection
 Config::set('db_driver', 'mysql');
 Config::set('db_host', 'localhost');
-Config::set('db_name', 'github');
-Config::set('db_user', 'github');
+Config::set('db_name', 'starred_repos');
+Config::set('db_user', 'starred_repos');
 Config::set('db_pass', 'kd&M23@mAk^.2jk');
 
 // site settings
 Config::set('site_title', 'GitHub Repos');
-Config::set('site_url', 'ec2-52-33-6-212.us-west-2.compute.amazonaws.com:8080');
+Config::set('site_url', 'ec2-52-33-6-212.us-west-2.compute.amazonaws.com');
 
 
 /**

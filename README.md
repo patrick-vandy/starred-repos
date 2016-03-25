@@ -82,6 +82,8 @@ Essentially, the point to this framework is to allow code to be written followin
 to route http requests to an appropriate controller and method. There is also the ability to create CLI controllers and
 invoke them from the command line through the main entry file, `public/index.php`.
 
+Online documentation of all classes and methods is available [here](http://ec2-52-33-6-212.us-west-2.compute.amazonaws.com:8080).
+
 
 ##### Namespace / Naming Conventions
 

@@ -56,10 +56,14 @@ Config::set('site_url', 'ec2-52-33-6-212.us-west-2.compute.amazonaws.com:8080');
 Config::set('default_template', 'main');
 
 // access token for github api
-Config::set('github_token', '459c10e015a92c5adac81fcf9da0932f54221fb6');
+//
+// NOTE: github will delete an access token if it recognizes that
+//       token in a commit to a public repo (for security obviously).
+//       in other words, if you add an access token here don't commit it!
+//Config::set('github_token', '');
 
 // maximum number of repos to import
-Config::set('max_repos', 500);
+Config::set('max_repos', 200);
 
 // default results per page
 Config::set('rpp', 20);

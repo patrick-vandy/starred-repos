@@ -4,7 +4,7 @@ Retrieve and display the most starred repos on GitHub. There is an import utilit
 from the GitHub API and stores them in a MySQL table. Then there is a web interface built on bootstrap to view the imported
 repos.
 
-This is built on a very simple custom framework that provides basic routing and an MVC architecture.
+This is built on a simple custom framework that provides basic routing and an MVC architecture.
 
 
 ## Dependencies
@@ -16,7 +16,6 @@ This is built on a very simple custom framework that provides basic routing and 
   - php5-cli
   - php5-common
   - php5-curl
-  - php5-gd
   - php5-json
   - php5-mcrypt
   - php5-mysql  

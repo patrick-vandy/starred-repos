@@ -51,19 +51,27 @@ class Util extends Controller
      */
     public function import($max_repos = 0)
     {
-        if ($max_repos)
+        try
         {
-            $this->max_repos = $max_repos;
+            if ($max_repos)
+            {
+                $this->max_repos = $max_repos;
+            }
+
+            $import_id = $this->github->get_import_id();
+
+            echo "\n Importing repos";
+            $count = $this->_get_repos($import_id);
+            echo "\n $count repos imported";
+
+            $count = $this->github->delete_old_repos($import_id);
+            echo "\n $count repos from previous imports deleted\n\n";
         }
-
-        $import_id = $this->github->get_import_id();
-
-        echo "\n Importing repos";
-        $count = $this->_get_repos($import_id);
-        echo "\n $count repos imported";
-
-        $count = $this->github->delete_old_repos($import_id);
-        echo "\n $count repos from previous imports deleted\n\n";
+        catch (\Exception $e)
+        {
+            echo "\n " . $e->getMessage() . "\n\n Exiting with error status!\n\n";
+            exit(1);
+        }
     }
 
 

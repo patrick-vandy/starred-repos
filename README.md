@@ -159,7 +159,7 @@ class Util extends Controller
   
   public function import($limit)
   {
-    for ($i = 1; $i <= 10; $i++)
+    for ($i = 1; $i <= $limit; $i++)
     {
       $this->model->import($i);
     }
@@ -202,6 +202,30 @@ class Util extends Model
 
 }
 ```
+
+
+##### Views
+
+Views are simply static html files with placeholders denoted by `%%VAR_NAME%%`.
+
+`\framework\core\Controller::load_view($name, $values = [], $ext = '.html')` is a protected method that can be
+called within any controller class to load a view file and replace the placeholders with values. `$values`
+is an associative array with keys corresponding to the placeholders in the view. For example, given a view
+file in `view/piece/linked-list.html` containing:
+
+```
+<li><a href="%%LINK%%">%%TEXT%%</a></li>
+```
+
+The following code can be used inside a controller class to load the piece with values and store it in a variable:
+
+```
+$values = ['link' => 'http://google.com', 'text' => 'Google'];
+$html = $this->load_view('piece/linked-list', $values);
+```
+
+Views can be anything from a small piece like the example above to a full html document or template. The point to
+the views is to store **ALL** html in views and prevent the need to build ugly html strings in php classes.
 
 
 ##### Core Classes

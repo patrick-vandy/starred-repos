@@ -96,7 +96,7 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = '' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`github`@`localhost`*/ /*!50003 TRIGGER `github`.`repo_BEFORE_UPDATE` BEFORE UPDATE ON `repo` FOR EACH ROW
+/*!50003 CREATE*/ /*!50017 DEFINER=CURRENT_USER */ /*!50003 TRIGGER `repo_BEFORE_UPDATE` BEFORE UPDATE ON `repo` FOR EACH ROW
 BEGIN
 	IF NEW.updated_on IS NULL OR NEW.updated_on = '0000-00-00 00:00:00'
     THEN
@@ -198,7 +198,7 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = '' */ ;
 DELIMITER ;;
-CREATE DEFINER=`github`@`localhost` PROCEDURE `repo_import`(
+CREATE DEFINER=CURRENT_USER PROCEDURE `repo_import`(
 	IN p_repo_import_id INTEGER(10) UNSIGNED,
 	IN p_sync_id INTEGER(10) UNSIGNED,
 	IN p_name CHARACTER VARYING(255),
@@ -246,7 +246,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = '' */ ;
 DELIMITER ;;
-CREATE DEFINER=`github`@`localhost` PROCEDURE `repo_upsert`(
+CREATE DEFINER=CURRENT_USER PROCEDURE `repo_upsert`(
 	IN p_sync_id INTEGER(10) UNSIGNED,
 	IN p_name CHARACTER VARYING(255),
 	IN p_description TEXT, 
@@ -326,7 +326,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = '' */ ;
 DELIMITER ;;
-CREATE DEFINER=`github`@`localhost` PROCEDURE `test_proc`(
+CREATE DEFINER=CURRENT_USER PROCEDURE `test_proc`(
 	IN foo integer,
 	OUT bar integer
 )
